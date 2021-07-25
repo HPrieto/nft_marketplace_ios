@@ -1,5 +1,5 @@
 //
-//  OSAssetObject.swift
+//  OSAsset.swift
 //  nft_marketplace_ios
 //
 //  Created by Heriberto Prieto on 7/25/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OSAssetObject: Codable {
+struct OSAsset: Codable {
     public var tokenId: String?
     public var imageUrl: String?
     public var backgroundColor: String?

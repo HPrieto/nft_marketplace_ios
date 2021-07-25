@@ -25,4 +25,10 @@ class TokenMarketTableViewController: UIViewController {
         super.viewDidLoad()
         setup()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
+    }
 }
