@@ -95,6 +95,7 @@ extension TokenMarketTableViewController: UICollectionViewDataSource, UICollecti
         cell.descriptionLabel.text = model.description
         cell.priceLabel.text = "\(model.lastSale ?? 0.00)"
         cell.priceTitleLabel.text = "Price"
+        cell.imageView.setImage(fromUrlString: model.imageThumbnailUrl)
         return cell
     }
     

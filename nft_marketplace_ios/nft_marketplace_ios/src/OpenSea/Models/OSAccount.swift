@@ -10,7 +10,7 @@ import Foundation
 struct OSAccount: Codable {
     public var address: String?
     public var profileImageUrl: String?
-    public var user: String?
+    public var user: OSUser?
     public var config: String?
     
     private enum CodingKeys: String, CodingKey {
@@ -24,7 +24,7 @@ struct OSAccount: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         address = try container.decodeIfPresent(String.self, forKey: .address)
         profileImageUrl = try container.decodeIfPresent(String.self, forKey: .profileImageUrl)
-        user = try container.decodeIfPresent(String.self, forKey: .user)
+        user = try container.decodeIfPresent(OSUser.self, forKey: .user)
         config = try container.decodeIfPresent(String.self, forKey: .config)
     }
 }

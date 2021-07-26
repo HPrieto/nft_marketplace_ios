@@ -73,7 +73,7 @@ extension Endpoint {
 
 // MARK: - OrderDirection
 
-public enum OrderDirection: String {
+public enum QueryOrderDirection: String {
     case asc
     case desc
     

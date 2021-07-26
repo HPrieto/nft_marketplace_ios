@@ -21,7 +21,7 @@ struct OSAsset: Codable {
     public var description: String?
     public var externalLink: String?
     public var assetContract: OSAssetContract?
-    public var owner: OSCreator?
+    public var owner: OSAccount?
     public var permalink: String?
     public var traits: [OSTrait]?
     public var lastSale: CGFloat?
@@ -63,7 +63,7 @@ struct OSAsset: Codable {
         description = try container.decodeIfPresent(String.self, forKey: .description)
         externalLink = try container.decodeIfPresent(String.self, forKey: .externalLink)
         assetContract = try container.decodeIfPresent(OSAssetContract.self, forKey: .assetContract)
-        owner = try container.decodeIfPresent(OSCreator.self, forKey: .owner)
+        owner = try container.decodeIfPresent(OSAccount.self, forKey: .owner)
         permalink = try container.decodeIfPresent(String.self, forKey: .permalink)
         traits = try container.decodeIfPresent([OSTrait].self, forKey: .traits)
         lastSale = try container.decodeIfPresent(CGFloat.self, forKey: .lastSale)

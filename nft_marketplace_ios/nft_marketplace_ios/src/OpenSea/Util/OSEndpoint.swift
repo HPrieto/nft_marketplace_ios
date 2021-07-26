@@ -13,7 +13,7 @@ public enum OSEndpoint: Endpoint {
     // MARK: - Endpoints
     
     /// /assets?order_direction=desc&offset=0&limit=20
-    case assets(orderDirection: OrderDirection, offset: Int, limit: Int)
+    case assets(orderDirection: QueryOrderDirection, offset: Int, limit: Int)
     
     public var urlString: String {
         "OpenSeaUrlString"
