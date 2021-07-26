@@ -15,6 +15,11 @@
 		43786DEB26AE2D110048816B /* OSEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43786DEA26AE2D110048816B /* OSEndpoint.swift */; };
 		43786DED26AE2EDF0048816B /* OSAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43786DEC26AE2EDF0048816B /* OSAsset.swift */; };
 		43786DEF26AE4BC10048816B /* OSOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43786DEE26AE4BC10048816B /* OSOwner.swift */; };
+		43786DF126AE55D00048816B /* OSSellOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43786DF026AE55D00048816B /* OSSellOrder.swift */; };
+		43786DF426AE6E8D0048816B /* NFTAssetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43786DF326AE6E8D0048816B /* NFTAssetCollectionViewCell.swift */; };
+		43786DF626AE6EB00048816B /* UICollectionViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43786DF526AE6EB00048816B /* UICollectionViewCell+Extensions.swift */; };
+		43786DF826AE77EE0048816B /* OSCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43786DF726AE77EE0048816B /* OSCreator.swift */; };
+		43786DFA26AE7A020048816B /* OSAssetCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43786DF926AE7A020048816B /* OSAssetCollection.swift */; };
 		438C1AA126A7D56B00BFB105 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C1AA026A7D56B00BFB105 /* AppDelegate.swift */; };
 		438C1AA326A7D56B00BFB105 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C1AA226A7D56B00BFB105 /* SceneDelegate.swift */; };
 		438C1AA526A7D56B00BFB105 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C1AA426A7D56B00BFB105 /* ViewController.swift */; };
@@ -61,6 +66,11 @@
 		43786DEA26AE2D110048816B /* OSEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSEndpoint.swift; sourceTree = "<group>"; };
 		43786DEC26AE2EDF0048816B /* OSAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSAsset.swift; sourceTree = "<group>"; };
 		43786DEE26AE4BC10048816B /* OSOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSOwner.swift; sourceTree = "<group>"; };
+		43786DF026AE55D00048816B /* OSSellOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSSellOrder.swift; sourceTree = "<group>"; };
+		43786DF326AE6E8D0048816B /* NFTAssetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTAssetCollectionViewCell.swift; sourceTree = "<group>"; };
+		43786DF526AE6EB00048816B /* UICollectionViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		43786DF726AE77EE0048816B /* OSCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCreator.swift; sourceTree = "<group>"; };
+		43786DF926AE7A020048816B /* OSAssetCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSAssetCollection.swift; sourceTree = "<group>"; };
 		438C1A9D26A7D56B00BFB105 /* nft_marketplace_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nft_marketplace_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		438C1AA026A7D56B00BFB105 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		438C1AA226A7D56B00BFB105 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +139,9 @@
 				43786DE726AE2C340048816B /* OSAccount.swift */,
 				43786DEC26AE2EDF0048816B /* OSAsset.swift */,
 				43786DEE26AE4BC10048816B /* OSOwner.swift */,
+				43786DF026AE55D00048816B /* OSSellOrder.swift */,
+				43786DF726AE77EE0048816B /* OSCreator.swift */,
+				43786DF926AE7A020048816B /* OSAssetCollection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -139,6 +152,14 @@
 				43786DEA26AE2D110048816B /* OSEndpoint.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		43786DF226AE6E680048816B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				43786DF326AE6E8D0048816B /* NFTAssetCollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		438C1A9426A7D56B00BFB105 = {
@@ -198,6 +219,7 @@
 		438C1AD326A7D5C500BFB105 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				43786DF226AE6E680048816B /* Views */,
 				43786DDD26AE24920048816B /* OpenSea */,
 				438C1AEC26A7E0FB00BFB105 /* Extensions */,
 				438C1ADF26A7DC2100BFB105 /* Networking */,
@@ -250,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				438C1AED26A7E11300BFB105 /* Encodable+Extensions.swift */,
+				43786DF526AE6EB00048816B /* UICollectionViewCell+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -386,6 +409,8 @@
 			files = (
 				438C1AE926A7E01000BFB105 /* NetworkServiceResponseError.swift in Sources */,
 				438C1ADC26A7DBC900BFB105 /* Endpoint.swift in Sources */,
+				43786DF126AE55D00048816B /* OSSellOrder.swift in Sources */,
+				43786DF426AE6E8D0048816B /* NFTAssetCollectionViewCell.swift in Sources */,
 				438C1AAB26A7D56B00BFB105 /* nft_marketplace_ios.xcdatamodeld in Sources */,
 				438C1AEB26A7E07B00BFB105 /* NetworkManager.swift in Sources */,
 				438C1AE526A7DF0600BFB105 /* HttpMethod.swift in Sources */,
@@ -398,10 +423,13 @@
 				438C1ADA26A7D84100BFB105 /* TokenMarketTableViewController.swift in Sources */,
 				43786DE826AE2C340048816B /* OSAccount.swift in Sources */,
 				438C1AD726A7D63100BFB105 /* MainCoordinator.swift in Sources */,
+				43786DFA26AE7A020048816B /* OSAssetCollection.swift in Sources */,
+				43786DF626AE6EB00048816B /* UICollectionViewCell+Extensions.swift in Sources */,
 				43786DDC26AE241A0048816B /* APIError.swift in Sources */,
 				438C1AA326A7D56B00BFB105 /* SceneDelegate.swift in Sources */,
 				43786DED26AE2EDF0048816B /* OSAsset.swift in Sources */,
 				43786DE326AE29EE0048816B /* OSAssetContract.swift in Sources */,
+				43786DF826AE77EE0048816B /* OSCreator.swift in Sources */,
 				43786DEB26AE2D110048816B /* OSEndpoint.swift in Sources */,
 				438C1ADE26A7DBF700BFB105 /* JSON.swift in Sources */,
 				43786DEF26AE4BC10048816B /* OSOwner.swift in Sources */,
