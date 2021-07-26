@@ -26,17 +26,10 @@ class NetworkManager {
 extension NetworkManager {
     
     public func request<T: Decodable>(type: T.Type, from endpoint: Endpoint, completionHandler: @escaping (Swift.Result<T, Swift.Error>) -> Void) {
-        guard
-            let baseURLString: String = Bundle.main.object(forInfoDictionaryKey: "BaseURL") as? String,
-            let baseURL: URL = URL(string: baseURLString)
-        else {
-            completionHandler(.failure(NetworkServiceError.url))
-            return
-        }
         
         var request: URLRequest
         do {
-            request = try endpoint.urlRequest(using: baseURL)
+            request = try endpoint.urlRequest()
         } catch {
             completionHandler(.failure(error))
             return
@@ -45,36 +38,17 @@ extension NetworkManager {
         let sessionConfig: URLSessionConfiguration = URLSessionConfiguration.default
         let session: URLSession = URLSession(configuration: sessionConfig)
         let dataTask: URLSessionDataTask = session.dataTask(with: request) { (data, response, error) in
-            if let error = error {
+            if let error = error as NSError?,
+               error.code != 200 {
                 DispatchQueue.main.async {
                     completionHandler(.failure(error))
                 }
                 return
             }
-            guard
-                let response: HTTPURLResponse = response as? HTTPURLResponse,
-                let data = data
-            else {
-                DispatchQueue.main.async {
-                    completionHandler(.failure(NetworkServiceError.notFound))
-                }
-                return
-            }
-            print("Response Data:", String(data: data, encoding: .utf8) ?? "None")
             do {
-                let res = try JSONDecoder().decode(APIResponse<T>.self, from: data)
-                if let data = res.data {
-                    DispatchQueue.main.async {
-                        completionHandler(.success(data))
-                    }
-                } else if let apiError = res.error {
-                    DispatchQueue.main.async {
-                        completionHandler(.failure(apiError.toError()))
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        completionHandler(.failure(NSError(domain: response.description, code: response.statusCode, userInfo: nil) as Error))
-                    }
+                let response: T = try JSONDecoder().decode(T.self, from: data!)
+                DispatchQueue.main.async {
+                    completionHandler(.success(response))
                 }
             } catch let err {
                 print(err)
