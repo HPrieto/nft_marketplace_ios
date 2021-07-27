@@ -12,6 +12,8 @@ public enum OSEndpoint: Endpoint {
     
     // MARK: - Endpoints
     
+    /// /asset/`{asset_contract_address}`/`{token_id}`/
+    case asset(assetContractAddress: String, tokenId: String)
     /// /assets?order_direction=desc&offset=0&limit=20
     case assets(orderDirection: QueryOrderDirection, offset: Int, limit: Int)
     
@@ -23,7 +25,7 @@ public enum OSEndpoint: Endpoint {
         let httpMethod: HttpMethod
         
         switch self {
-        case .assets:
+        case .asset, .assets:
             httpMethod = .get
         }
         
@@ -34,6 +36,8 @@ public enum OSEndpoint: Endpoint {
         let path: String
         
         switch self {
+        case .asset:
+            path = "/asset"
         case .assets:
             path = "/assets"
         }
@@ -45,6 +49,9 @@ public enum OSEndpoint: Endpoint {
         var queryItems: [String: Any] = [:]
         
         switch self {
+        case .asset(let assetContractAddress, let tokenId):
+            queryItems["asset_contract_address"] = assetContractAddress
+            queryItems["token_id"] = tokenId
         case .assets(let orderDirection, let offset, let limit):
             queryItems["order_direction"] = orderDirection.value
             queryItems["offset"] = "\(offset)"

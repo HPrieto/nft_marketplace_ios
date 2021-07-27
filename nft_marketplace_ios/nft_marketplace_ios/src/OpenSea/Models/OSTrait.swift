@@ -11,9 +11,9 @@ struct OSTrait: Codable {
     public var traitType: String?
     public var value: String?
     public var displayType: String?
-    public var traitCount: Int?
+    public var traitCount: Int32?
     public var maxValue: String?
-    public var order: String?
+    public var order: Int32?
     
     private enum CodingKeys: String, CodingKey {
         case traitType = "trait_type"
@@ -27,10 +27,14 @@ struct OSTrait: Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         traitType = try container.decodeIfPresent(String.self, forKey: .traitType)
-        value = try container.decodeIfPresent(String.self, forKey: .value)
+        do {
+            value = try String(container.decode(Int32.self, forKey: .value))
+        } catch DecodingError.typeMismatch {
+            value = try container.decodeIfPresent(String.self, forKey: .value)
+        }
         displayType = try container.decodeIfPresent(String.self, forKey: .displayType)
-        traitCount = try container.decodeIfPresent(Int.self, forKey: .traitCount)
+        traitCount = try container.decodeIfPresent(Int32.self, forKey: .traitCount)
         maxValue = try container.decodeIfPresent(String.self, forKey: .maxValue)
-        order = try container.decodeIfPresent(String.self, forKey: .order)
+        order = try container.decodeIfPresent(Int32.self, forKey: .order)
     }
 }

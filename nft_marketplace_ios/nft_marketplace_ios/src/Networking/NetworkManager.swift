@@ -46,6 +46,7 @@ extension NetworkManager {
                 return
             }
             do {
+                print(String(data: data!, encoding: .utf8))
                 let response: T = try JSONDecoder().decode(T.self, from: data!)
                 DispatchQueue.main.async {
                     completionHandler(.success(response))

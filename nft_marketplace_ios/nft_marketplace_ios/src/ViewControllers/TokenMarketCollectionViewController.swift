@@ -7,7 +7,19 @@
 
 import UIKit
 
-class TokenMarketTableViewController: UIViewController {
+// MARK: - TokenMarketCollectionViewControllerDelegate
+
+protocol TokenMarketCollectionViewControllerDelegate {
+    func tokenMarketCollectionViewController(_ controller: TokenMarketCollectionViewController, didSelectAssetAt indexPath: IndexPath, asset: OSAsset)
+}
+
+// MARK: - TokenMarketCollectionViewController
+
+class TokenMarketCollectionViewController: UIViewController {
+    
+    // MARK: - Public Properties
+    
+    public var assetDelegate: TokenMarketCollectionViewControllerDelegate?
     
     var models: [OSAsset] = [OSAsset]()
     
@@ -19,7 +31,7 @@ class TokenMarketTableViewController: UIViewController {
     
     // MARK: - Subviews
     
-    private(set) lazy var collectionView: UICollectionView = {
+    private(set) lazy var collectionView: UICollectionView = { [unowned self] in
         let view = UICollectionView(
             frame: .zero,
             collectionViewLayout: UICollectionViewFlowLayout()
@@ -35,7 +47,7 @@ class TokenMarketTableViewController: UIViewController {
     // MARK: - Setup
     
     private func setup() {
-        view.backgroundColor = .orange
+        view.backgroundColor = .white
         
         view.addSubview(collectionView)
         
@@ -75,7 +87,7 @@ class TokenMarketTableViewController: UIViewController {
     }
 }
 
-extension TokenMarketTableViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension TokenMarketCollectionViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         10
@@ -102,5 +114,14 @@ extension TokenMarketTableViewController: UICollectionViewDataSource, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         models.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let asset: OSAsset = models[indexPath.row]
+        assetDelegate?.tokenMarketCollectionViewController(
+            self,
+            didSelectAssetAt: indexPath,
+            asset: asset
+        )
     }
 }

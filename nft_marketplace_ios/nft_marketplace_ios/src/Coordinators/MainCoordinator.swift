@@ -49,6 +49,7 @@ class MainCoordinator {
     
     enum Destination: Int, RawRepresentable {
         case root
+        case assetDetail
     }
     
     // MARK: - Private Properties
@@ -65,8 +66,15 @@ class MainCoordinator {
     
     // MARK: - ViewControllers
     
-    private(set) lazy var tokenMarketTableViewController: TokenMarketTableViewController = {
-        TokenMarketTableViewController()
+    private(set) lazy var tokenMarketCollectionViewController: TokenMarketCollectionViewController = { [unowned self] in
+        let controller = TokenMarketCollectionViewController()
+        controller.assetDelegate = self
+        return controller
+    }()
+    
+    private(set) lazy var osAssetDetailViewController: OSAssetDetailViewController = {
+        let controller = OSAssetDetailViewController()
+        return controller
     }()
     
     // MARK: - Private Methods
@@ -76,7 +84,9 @@ class MainCoordinator {
         
         switch destination {
         case .root:
-            viewController = tokenMarketTableViewController
+            viewController = tokenMarketCollectionViewController
+        case .assetDetail:
+            viewController = osAssetDetailViewController
         }
         
         return viewController
@@ -95,6 +105,11 @@ class MainCoordinator {
         switch destination {
         case .root:
             rootNavigationController.viewControllers = [rootNavigationController]
+        case .assetDetail:
+            rootNavigationController.pushViewController(
+                viewController,
+                animated: true
+            )
         }
     }
     
@@ -103,5 +118,15 @@ class MainCoordinator {
     init(window: UIWindow?) {
         self.window = window
         self.window?.rootViewController = rootNavigationController
+    }
+}
+
+// MARK: - TokenMarketCollectionViewControllerDelegate
+
+extension MainCoordinator: TokenMarketCollectionViewControllerDelegate {
+    
+    func tokenMarketCollectionViewController(_ controller: TokenMarketCollectionViewController, didSelectAssetAt indexPath: IndexPath, asset: OSAsset) {
+        osAssetDetailViewController.asset = asset
+        show(viewControllerFor: .assetDetail)
     }
 }

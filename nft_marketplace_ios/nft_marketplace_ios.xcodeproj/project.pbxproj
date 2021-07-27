@@ -21,6 +21,7 @@
 		43786DFA26AE7A020048816B /* OSAssetCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43786DF926AE7A020048816B /* OSAssetCollection.swift */; };
 		43786DFC26AED5CD0048816B /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43786DFB26AED5CD0048816B /* UIImageView+Extensions.swift */; };
 		43786DFE26AEDCD60048816B /* OSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43786DFD26AEDCD60048816B /* OSUser.swift */; };
+		43786E0026AF86D60048816B /* OSAssetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43786DFF26AF86D60048816B /* OSAssetDetailViewController.swift */; };
 		438C1AA126A7D56B00BFB105 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C1AA026A7D56B00BFB105 /* AppDelegate.swift */; };
 		438C1AA326A7D56B00BFB105 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C1AA226A7D56B00BFB105 /* SceneDelegate.swift */; };
 		438C1AA526A7D56B00BFB105 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C1AA426A7D56B00BFB105 /* ViewController.swift */; };
@@ -31,7 +32,7 @@
 		438C1ABB26A7D56F00BFB105 /* nft_marketplace_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C1ABA26A7D56F00BFB105 /* nft_marketplace_iosTests.swift */; };
 		438C1AC626A7D56F00BFB105 /* nft_marketplace_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C1AC526A7D56F00BFB105 /* nft_marketplace_iosUITests.swift */; };
 		438C1AD726A7D63100BFB105 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C1AD626A7D63100BFB105 /* MainCoordinator.swift */; };
-		438C1ADA26A7D84100BFB105 /* TokenMarketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C1AD926A7D84100BFB105 /* TokenMarketTableViewController.swift */; };
+		438C1ADA26A7D84100BFB105 /* TokenMarketCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C1AD926A7D84100BFB105 /* TokenMarketCollectionViewController.swift */; };
 		438C1ADC26A7DBC900BFB105 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C1ADB26A7DBC900BFB105 /* Endpoint.swift */; };
 		438C1ADE26A7DBF700BFB105 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C1ADD26A7DBF700BFB105 /* JSON.swift */; };
 		438C1AE526A7DF0600BFB105 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C1AE426A7DF0600BFB105 /* HttpMethod.swift */; };
@@ -73,6 +74,7 @@
 		43786DF926AE7A020048816B /* OSAssetCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSAssetCollection.swift; sourceTree = "<group>"; };
 		43786DFB26AED5CD0048816B /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		43786DFD26AEDCD60048816B /* OSUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSUser.swift; sourceTree = "<group>"; };
+		43786DFF26AF86D60048816B /* OSAssetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSAssetDetailViewController.swift; sourceTree = "<group>"; };
 		438C1A9D26A7D56B00BFB105 /* nft_marketplace_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nft_marketplace_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		438C1AA026A7D56B00BFB105 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		438C1AA226A7D56B00BFB105 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,7 +91,7 @@
 		438C1AC526A7D56F00BFB105 /* nft_marketplace_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nft_marketplace_iosUITests.swift; sourceTree = "<group>"; };
 		438C1AC726A7D56F00BFB105 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		438C1AD626A7D63100BFB105 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		438C1AD926A7D84100BFB105 /* TokenMarketTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenMarketTableViewController.swift; sourceTree = "<group>"; };
+		438C1AD926A7D84100BFB105 /* TokenMarketCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenMarketCollectionViewController.swift; sourceTree = "<group>"; };
 		438C1ADB26A7DBC900BFB105 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		438C1ADD26A7DBF700BFB105 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		438C1AE426A7DF0600BFB105 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
@@ -253,7 +255,8 @@
 		438C1AD826A7D7FC00BFB105 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				438C1AD926A7D84100BFB105 /* TokenMarketTableViewController.swift */,
+				438C1AD926A7D84100BFB105 /* TokenMarketCollectionViewController.swift */,
+				43786DFF26AF86D60048816B /* OSAssetDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43786E0026AF86D60048816B /* OSAssetDetailViewController.swift in Sources */,
 				438C1AE926A7E01000BFB105 /* NetworkServiceResponseError.swift in Sources */,
 				438C1ADC26A7DBC900BFB105 /* Endpoint.swift in Sources */,
 				43786DF126AE55D00048816B /* OSSellOrder.swift in Sources */,
@@ -425,7 +429,7 @@
 				43786DFE26AEDCD60048816B /* OSUser.swift in Sources */,
 				43786DDA26AE23680048816B /* APIResponse.swift in Sources */,
 				438C1AE726A7DFF300BFB105 /* NetworkServiceError.swift in Sources */,
-				438C1ADA26A7D84100BFB105 /* TokenMarketTableViewController.swift in Sources */,
+				438C1ADA26A7D84100BFB105 /* TokenMarketCollectionViewController.swift in Sources */,
 				43786DE826AE2C340048816B /* OSAccount.swift in Sources */,
 				438C1AD726A7D63100BFB105 /* MainCoordinator.swift in Sources */,
 				43786DFA26AE7A020048816B /* OSAssetCollection.swift in Sources */,

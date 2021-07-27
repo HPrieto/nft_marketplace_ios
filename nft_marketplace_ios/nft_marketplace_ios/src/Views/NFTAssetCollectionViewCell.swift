@@ -13,6 +13,7 @@ class NFTAssetCollectionViewCell: UICollectionViewCell {
     
     private(set) lazy var imageView: UIImageView = {
         let view = UIImageView()
+        view.contentMode = .scaleAspectFit
         view.backgroundColor = .lightGray
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -33,7 +34,6 @@ class NFTAssetCollectionViewCell: UICollectionViewCell {
     private(set) lazy var priceTitleLabel: UILabel = {
         let view = UILabel()
         view.textAlignment = .right
-        view.backgroundColor = .blue
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -74,7 +74,7 @@ class NFTAssetCollectionViewCell: UICollectionViewCell {
         
         priceTitleLabel.bottomAnchor.constraint(equalTo: priceLabel.topAnchor).isActive = true
         priceTitleLabel.rightAnchor.constraint(equalTo: priceLabel.rightAnchor).isActive = true
-        priceTitleLabel.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor, multiplier: 0.33).isActive = true
+        priceTitleLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
     }
     
     // MARK: - Init

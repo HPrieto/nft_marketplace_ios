@@ -9,11 +9,12 @@ import UIKit
 
 struct OSAsset: Codable {
     public var tokenId: String?
-    public var numSales: Int?
+    public var numSales: Int32?
     public var imageUrl: String?
     public var imagePreviewUrl: String?
     public var imageThumbnailUrl: String?
     public var imageOriginalUrl: String?
+    public var isPresale: Bool?
     public var animationUrl: String?
     public var animationOriginalUrl: String?
     public var backgroundColor: String?
@@ -34,6 +35,7 @@ struct OSAsset: Codable {
         case imagePreviewUrl = "image_preview_url"
         case imageThumbnailUrl = "image_thumbnail_url"
         case imageOriginalUrl = "image_original_url"
+        case isPresale = "is_presale"
         case animationUrl = "animation_url"
         case animationOriginalUrl = "animation_original_url"
         case backgroundColor = "background_color"
@@ -50,12 +52,17 @@ struct OSAsset: Codable {
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        tokenId = try container.decodeIfPresent(String.self, forKey: .tokenId)
-        numSales = try container.decodeIfPresent(Int.self, forKey: .numSales)
+        do {
+            tokenId = try String(container.decode(Int32.self, forKey: .tokenId))
+        } catch DecodingError.typeMismatch {
+            tokenId = try container.decodeIfPresent(String.self, forKey: .tokenId)
+        }
+        numSales = try container.decodeIfPresent(Int32.self, forKey: .numSales)
         imageUrl = try container.decodeIfPresent(String.self, forKey: .imageUrl)
         imagePreviewUrl = try container.decodeIfPresent(String.self, forKey: .imagePreviewUrl)
         imageThumbnailUrl = try container.decodeIfPresent(String.self, forKey: .imageThumbnailUrl)
         imageOriginalUrl = try container.decodeIfPresent(String.self, forKey: .imageOriginalUrl)
+        isPresale = try container.decodeIfPresent(Bool.self, forKey: .isPresale)
         animationUrl = try container.decodeIfPresent(String.self, forKey: .animationUrl)
         animationOriginalUrl = try container.decodeIfPresent(String.self, forKey: .animationOriginalUrl)
         backgroundColor = try container.decodeIfPresent(String.self, forKey: .backgroundColor)
